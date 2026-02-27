@@ -61,9 +61,11 @@ Claude will:
 
 1. **Detect** your framework (Next.js, Rails, Django, etc.) and respect its conventions
 2. **Scan** your codebase for structural problems
-3. **Report** findings as Critical (🔴), Warning (🟡), and Good (🟢)
-4. **Dry run** showing exactly what it plans to change
-5. **Execute** the fixes after you confirm
+3. **Estimate** token waste from each issue found
+4. **Report** findings as Critical (🔴), Warning (🟡), and Good (🟢) with a token savings breakdown
+5. **Dry run** showing exactly what it plans to change and how many tokens each fix saves
+6. **Execute** the fixes after you confirm
+7. **Summarize** total token and cost savings when done
 
 ### What It Checks
 
@@ -88,29 +90,41 @@ Claude will:
 **Framework detected:** Next.js
 **Files:** 847 | **Directories:** 94 | **Max depth:** 5
 
+## 💰 Token Waste Estimate
+
+| Source                              | Est. waste per session |
+|-------------------------------------|----------------------|
+| God files (2 files, 2,470 lines)    | ~14,160 tokens       |
+| Bloated CLAUDE.md (450 lines)       | ~1,200 tokens        |
+| Root junk (12 files)                | ~1,800 tokens        |
+| Type-based org (6 features)         | ~3,000 tokens        |
+| Barrel exports (3 barrels, 78 exp.) | ~624 tokens          |
+| Orphaned AI configs (2 files)       | ~600 tokens          |
+| **Total estimated waste**           | **~21,384 tokens/session** |
+
 ## 🔴 Critical
 - src/api/handlers.ts is 1,847 lines (god file)
 - No CLAUDE.md found
 - 12 non-config files in project root
-- src/modules/features/auth/handlers/middleware/ nested 6 levels deep
 
 ## 🟡 Warning
 - src/utils/helpers.ts is 623 lines
 - Type-based organization detected in src/services/, src/models/
-- Missing .editorconfig and .prettierrc
 - src/components/index.ts re-exports 34 modules (barrel export maze)
 
 ## 🟢 Good
 - Tests are co-located with features
 - No circular import patterns detected
-- tsconfig.json and eslint config present
 
 ## Recommended Actions
-1. Split src/api/handlers.ts into per-resource handler files
-2. Generate CLAUDE.md with project overview and file map
-3. Move 12 root junk files to scratch/
-4. Flatten deep nesting in src/modules/features/
-5. Add .editorconfig and .prettierrc
+1. Split src/api/handlers.ts → saves ~12,000 tokens/session
+2. Generate CLAUDE.md → saves ~0 (but prevents future bloat)
+3. Move 12 root junk files to scratch/ → saves ~1,800 tokens/session
+4. Remove 2 orphaned AI configs → saves ~600 tokens/session
+5. Reorganize type-based dirs to feature-based → saves ~3,000 tokens/session
+
+**Total potential savings: ~17,400 tokens/session**
+**Over 100 sessions: ~1.7M tokens saved (~$5.22 at $3/M input tokens)**
 ```
 
 ## Before and After
