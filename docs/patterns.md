@@ -79,6 +79,7 @@ When these files exist, Claude reads them and matches your style automatically. 
 - How to run, test, and deploy (exact commands)
 - Coding conventions and naming rules
 - Things that are easy to get wrong ("always use UTC timestamps", "never import from internal/")
+- Reference Docs section linking to docs/ files
 
 ### What NOT to include
 - Full API documentation (put in docs/api-reference.md)
@@ -105,6 +106,9 @@ When these files exist, Claude reads them and matches your style automatically. 
 
 ## Conventions
 [5-10 rules]
+
+## Reference Docs
+[links to docs/ files with one-line descriptions]
 ```
 
 Target: 80-150 lines. If it's over 200, you're stuffing too much in.
@@ -162,7 +166,7 @@ Each package gets its own CLAUDE.md with package-specific context. The root CLAU
 
 | Lines | Status | Action |
 |-------|--------|--------|
-| < 300 | Good | No action needed |
-| 300-500 | Fine | Monitor, split if it keeps growing |
-| 500-1000 | Warning | Look for natural split points |
-| 1000+ | Critical | Split immediately, this is a god file |
+| < 200 | ✅ Ideal | No action needed |
+| 200-500 | ⚠️ Watch | Consider splitting if it keeps growing |
+| 500-1000 | 🔶 Split recommended | Look for natural split points |
+| 1000+ | 🔴 Split required | This is a god file. Split immediately. |
