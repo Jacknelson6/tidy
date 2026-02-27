@@ -141,7 +141,7 @@ After reorganizing, update CLAUDE.md with a file map showing where key files mov
 
 - Always show a dry run of planned changes before executing
 - Never delete files without explicit user confirmation. Default to moving to scratch/
-- Preserve git history awareness: mention that the user should review `git diff` after cleanup
+- Preserve git history awareness: mention that the user should review `git diff` after tidying
 - If the project uses a framework with strong conventions (Next.js, Rails, Django), respect those conventions instead of imposing generic structure
 - Be specific in your report. Name every file and its line count.
 - Reference docs/patterns.md and docs/anti-patterns.md when explaining why something is a problem (if those files exist in the project)
