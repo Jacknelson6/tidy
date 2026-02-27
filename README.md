@@ -1,6 +1,9 @@
-# Tidy
+<p align="center">
+  <img src="assets/logo.jpg" alt="Tidy" width="400"/>
+</p>
 
-**Stop burning tokens on disorganized code.**
+<h1 align="center">Tidy</h1>
+<p align="center"><strong>Stop burning tokens on disorganized code.</strong></p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
